@@ -5,13 +5,13 @@ const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 
-app.get("/saved_players", (request, response) => {
-    queries.list().then(saved_players => {
-        response.json({saved_players});
+app.get("/overwatch", (request, response) => {
+    queries.list().then(overwatch => {
+        response.json({overwatch});
     }).catch(console.error);
 });
 
-app.get("/saved_players/:id", (request, response) => {
+app.get("/overwatch/:id", (request, response) => {
     queries.read(request.params.id).then(player => {
         player
             ? response.json({player})
@@ -19,19 +19,19 @@ app.get("/saved_players/:id", (request, response) => {
     }).catch(console.error);
 });
 
-app.post("/saved_players", (request, response) => {
+app.post("/overwatch", (request, response) => {
     queries.create(request.body).then(player => {
         response.status(201).json({player});
     }).catch(console.error);
 });
 
-app.delete("/saved_players/:id", (request, response) => {
+app.delete("/overwatch/:id", (request, response) => {
     queries.delete(request.params.id).then(() => {
         response.sendStatus(204);
     }).catch(console.error);
 });
 
-app.put("/saved_players/:id", (request, response) => {
+app.put("/overwatch/:id", (request, response) => {
     queries.update(request.params.id, request.body).then(game => {
         response.json({player});
     }).catch(console.error);
