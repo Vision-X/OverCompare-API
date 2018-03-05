@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postfres://localhost/overwatch'
+    connection: 'postgres://localhost/overwatch'
   },
 
   production: {
