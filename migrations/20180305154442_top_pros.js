@@ -1,11 +1,10 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('saved_players', table => {
+  return knex.schema.createTable('top_pros', table => {
     table.increments('id').primary()
     table.text('player_name')
-    // table.json('player_stats')
   })
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists('saved_players')
+  return knex.schema.dropTableIfExists('top_pros')
 };
